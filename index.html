@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>入部して！</title>
+  </head>
+  <body style="margin:0px; overflow:hidden;">
+    <!-- A-Frame ライブラリの読み込み -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- AR.js ライブラリの読み込み -->
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+    <!-- A-Frame の VR空間に AR.js を紐づける（デバッグUIを非表示） -->
+    <a-scene embedded arjs="debugUIEnabled:false;">
+
+      <!-- glTF形式のCGモデルの読み込み -->
+
+
+        <a-assets>
+          <a-asset-item id="ASK21" src="ASK21.gltf"></a-asset-item>
+        </a-assets>
+      
+      <!-- マーカーを登録（プリセットされている「kanji」マーカー） -->
+      <a-marker preset="kanji">
+        <!-- マーカーの場所に OBJ 形式の 3DCG を置く -->
+        <a-entity gltf-model="#ASK21" scale = "0.01 0.01 0.01"></a-entity>
+      </a-marker>
+
+      <!-- AR用のカメラを置く -->
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
